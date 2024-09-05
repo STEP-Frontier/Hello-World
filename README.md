@@ -33,10 +33,25 @@
     
     重要：platformio.iniファイルに、以下の内容を一番下に追加する
     >; 烧录协议 默认未 stlink 根据自己具体的烧录工具进行选择\
-    >; 参考：https://docs.platformio.org/en/latest/boards/ststm32/black_f407ve.html\
+    >; 参考：https://docs.platformio.org/en/latest/boards/ststm32/black_f407ve.html \
     >upload_protocol = stlink
     >
     >; 配置 源文件(src) 和 头文件(inc) 位置\
     >[platformio]\
     >src_dir = Core/Src\
     >include_dir = Core/Inc
+
+## BMP390 Test
+
+リポジトリの`Code/Inc/`の`bmp390.h`と、`Code/Src`の`bmp390.c`と`main.c`をコピペする。
+
+そして、BMP390をNucleo F446REに接続する。このプログラムでは、SPIの各PINの対応関係は以下となる：
+
+    - SCK -> PA5
+    - SDO -> PA6
+    - SDI -> PA7
+    - CS -> PA9
+
+プログラムを実行する前に、まずリポジトリの`main.py`というPythonファイルをコピペする。`main.py`の変数`port`を自分のUSBポートに変更した後に実行し、Nucleo側のprintfをターミナルでプリントすることができる。
+
+そしてテストプログラムをNucleoに書き込み、ターミナルでBMP390からの情報がプリントされたかを確認する。
