@@ -12,25 +12,31 @@
 
 2. **STM32CubeMXのインストール**
 
-    ダウンロード先：https://www.st.com/zh/development-tools/stm32cubemx.html
+    ダウンロード先：https://www.st.com/en/development-tools/stm32cubemx.html
 
-    全てデフォルトで大丈夫。
+   　ここでSTのアカウントを作ってない場合は作成する
 
-3. **プロジェクトの基本設定**
+   　（メールアドレスは任意）（アカウントなしでもダウンロード可能だがSTM32CubeMXで必要になる）
+
+    ダウンロードの際の設定は全てデフォルトで大丈夫。
+
+4. **プロジェクトの基本設定**
 
     - File -> New Project
-    - Commercial Part NumberのところにSTM32F446REと入れたら、右下のところのいくつかの選択肢の中に、Nucleoっぽい選択肢があるはず。そこでクリック。
+    - Commercial Part NumberのところにSTM32F446REと入れたら、右下のところのいくつかの選択肢の中に、BoardのところにNucleo~~~とある選択肢があるはず。そこでクリック。
     - System CoreのSysをクリックし、DebugをSerial Wireにする。
     - Nucleoでテストするなら、ConnectivityでUSART2をAsynchronousにする。
-    - Project Managerで自分のプロジェクトの名前やパスを設定する。Toolchain/IDEのところはMakefileを選択する。
+    - Project Manager（上のバーをクリック）で自分のプロジェクトの名前やパスを設定する。Toolchain/IDEのところはMakefileを選択する。
     - Code Generatorでcopy only the necessary library filesを選択する。
-    - Generate Code!
+    - Generate Code!（右上）
 
-4. **VSCodeの設定**
+5. **VSCodeの設定**
 
-    - まずPlatformIOというextensionをインストールする。
+    - (まずPlatformIOというextensionをインストールする。)
     - 左のバーのところのアリのアイコンをクリックし、PIO HomeのOpenをクリックした後、New Projectをクリックする。
-    - 色々設定。
+    - name(任意),board→STM32F446RE,framework→STM32Cubeに設定し、LocationのUse default locationのチェックを外し、STM32CubeMXで作ったフォルダーのパスにしてFinishを押す。
+    -　その後、STM32CubeMXで作ったフォルダーの中にさっきPlatformIOで入力した名前のファイルがあるため、中のファイルなどすべてをそのファイルからコピーして、一つ外に出す。
+    不要となった空のフォルダーは削除する。
     - そしてこのリポジトリに似ているコードのストラクチャーになる。
     
     重要：platformio.iniファイルに、以下の内容を一番下に追加する
