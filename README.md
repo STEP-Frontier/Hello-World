@@ -4,7 +4,6 @@
 
 ## Build environment
 
-中国語なんだけど一応これを参照した：https://zhuanlan.zhihu.com/p/690345624
 
 1. **VSCodeのインストール**
     
